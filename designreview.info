@@ -1,0 +1,4 @@
+; $Id$
+name = Design review
+description = Adds a page in drupal for easily view most aspects of a design on a single page
+core = 6.x

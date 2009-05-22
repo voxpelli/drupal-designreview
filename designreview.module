@@ -1,0 +1,202 @@
+<?php
+// $Id$
+
+/**
+ * @file
+ * Main file for the Design review module
+ */
+
+/**
+ * Implementation of hook_menu().
+ */
+function designreview_menu() {
+  $items = array();
+
+  $items['designreview'] = array(
+    'title'            => 'Design review',
+    'description'      => 'Page showing many of the aspects that a theme need to design.',
+    'page callback'    => '_designreview_page',
+    'access arguments' => array('access administration pages'),
+    'type'             => MENU_NORMAL_ITEM,
+  );
+
+  return $items;
+}
+
+/**
+ * Callback for menu item designreview
+ */
+function _designreview_page() {
+  $page = array();
+
+  //Node emulation - markup from http://adaptivethemes.com/element-styling-cheat-sheet
+  $node = (object) array(
+    'nid'       => '1',
+    'type'      => 'design',
+    'language'  => 'en',
+    'uid'       => '1',
+    'status'    => '1',
+    'created'   => '1242982110',
+    'changed'   => '1242982110',
+    'comment'   => '0',
+    'promote'   => '1',
+    'moderate'  => '0',
+    'sticky'    => '0',
+    'tnid'      => '0',
+    'translate' => '0',
+    'vid'       => '1',
+    'log'       => '',
+    'format'    => '2',
+    'name'      => 'Pelle',
+    'picture'   => '',
+    'data'      => 'a:1:{s:13:"form_build_id";s:37:"form-0c7c6bc5833fbd66eecb723629e61757";}',
+    'path'      => 'content/test',
+    'taxonomy'  => array(),
+    'revision_timestamp' => '1242982110',
+    'revision_uid'       => '3',
+    'title'     => 'Test',
+    'body'      => '<p>
+      <a href="http://validator.w3.org/check?uri=referer">
+      <img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" />
+      </a>
+    </p>
+
+    <h1>Heading 1</h1>
+    <h2>Heading 2</h2>
+    <h3>Heading 3</h3>
+    <h4>Heading 4</h4>
+    <h5>Heading 5</h5>
+    <h6>Heading 6</h6>
+
+    <p>0 1 2 3 4 5 6 7 8 9</p>
+    <p>+ - —  _  = ? ! ~ ( ) [ ] { } * ^ | "" \'\' `´ / \ &amp; @ £ $ § ½ % ¨ ; : . ,</p>
+    <p>a b c d e f g h i j k l m n o p q r s t u v w x y z ö ä å</p>
+    <p>A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Ö Ä Å</p>
+
+    <h2>H2 Heading with Paragraphs</h2>
+    <p>Paragraph one. Neo damnum aliquam consequat. Abdo genitus luptatum virtus singularis distineo validus ea. Gravis oppeto huic incassum torqueo jumentum dolus esca suscipit. Vulputate hos singularis veniam zelus singularis utinam vulputate sino quidne. Nutus neque quidem. Natu interdico melior.Oppeto vulpes meus jugis ut iriure valde consectetuer abigo. Aptent bene ideo commoveo quadrum abbas. Vereor macto neo probo ille.</p>
+
+    <h3>H3 Subheading</h3>
+    <p>Paragraph two. Esse vulpes sino virtus rusticus brevitas mos. Cui ad vulputate et vero zelus feugiat os olim obruo. Facilisi quadrum proprius gravis velit humo nunc wisi imputo antehabeo.Valde dolore tation facilisi ullamcorper gemino gemino cui qui paratus. Camur in capto euismod. Brevitas vero iriure letalis valde oppeto plaga ullamcorper adipiscing inhibeo.</p>
+
+    <p><a href="#">Hyperlink</a></p>
+
+    <p><span>Span</span></p>
+
+    <p><abbr title="abbr">abbr</abbr></p>
+    <p><acronym title="acronym">acronym</acronym></p>
+
+    <address>address</address>
+
+    <p><bdo dir="rtl">LTR bdo</bdo></p>
+    <p><bdo dir="ltr">LTR bdo</bdo></p>
+
+    <blockquote><p>blockquote</p></blockquote>
+    <p><q>q</q></p>
+    <p><cite>cite</cite></p>
+
+    <pre>Pre</pre>
+    <p><kbd>kbd</kbd></p>
+    <p><samp>samp</samp></p>
+    <p><var>var</var></p>
+    <del>del</del>
+    <ins>ins</ins>
+    <p><dfn>dfn</dfn></p>
+
+    <p><strong>strong</strong></p>
+    <p><em>em</em></p>
+
+    <p>sup<sup>1</sup></p>
+    <p>sub<sub>1</sub></p>
+
+    <table width="50%" border="1">
+    <caption>Caption. Table with border 1, width 50%</caption>
+    <thead>
+      <tr>
+      <th>thead th</th>
+      <th>thead th</th>
+      <th>thead th</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>tbody tr td</td>
+      <td>tbody tr td</td>
+      <td>tbody tr td</td>
+    </tr>
+    <tr>
+      <td>Neo damnum aliquam consequat.</td>
+      <td>Neo damnum aliquam consequat.</td>
+      <td>Neo damnum aliquam consequat. </td>
+    </tr>
+    <tr>
+      <td>Neo damnum aliquam consequat.</td>
+      <td>Neo damnum aliquam consequat. Neo damnum aliquam consequat.</td>
+      <td>Neo damnum aliquam consequat. Neo damnum aliquam consequat. Neo damnum aliquam consequat</td>
+    </tr>
+    </tbody>
+    </table>
+
+    <ol>
+    <li>Ordered list item</li>
+    <li>Ordered list item</li>
+    <li>Ordered list item</li>
+    <li>Ordered list item</li>
+    </ol>
+
+    <ul>
+    <li>Unordered list item</li>
+    <li>Unordered list item</li>
+    <li>Unordered list item</li>
+    <li>Unordered list item</li>
+    </ul>
+
+    <dl>
+    <dt>document term</dt>
+    <dd>document definition</dd>
+    <dt>document term</dt>
+    <dd>document definition</dd>
+    </dl>
+
+    <form id="form" method="post" accept-charset="UTF-8" action="/action">
+    <fieldset>
+      <legend>Fieldset with legend</legend>
+      <div>
+        <label>Label for Radios</label>
+        <input name="radio" type="radio" value="" /><input name="Radio" type="radio" value="" /><input name="Radio" type="radio" value="" />
+      </div>
+      <div>
+        <label>Label for Checkboxes</label>
+        <input name="checkboxes" type="checkbox" value="" /><input name="checkboxes" type="checkbox" value="" /><input name="checkboxes" type="checkbox" value="" />
+      </div>
+      <div>
+        <label>Label for Textfield</label>
+        <input id="textfield" type="text" value="input" size="50" maxlength="12"/>
+        </div>
+      <div>
+      </div>
+        <label>label for Textarea</label>
+        <textarea id="text" rows="5" cols="50"></textarea>
+      </div>
+      <div>
+        <label>label for Filefield</label>
+        <input name="files" type="file" size="50" />
+      </div>
+      <div>
+        <input name="button" type="button" value="Button" />
+      </div>
+    </fieldset>
+    </form>
+
+    <hr />',
+    'teaser' => 'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras vitae lorem tincidunt nulla ullamcorper luctus.',
+  );
+
+  $page['node'] = array(
+    '#value' => node_view($node, FALSE, TRUE),
+  );
+
+  drupal_alter('designreview', $page);
+
+  return drupal_render($page);
+}
